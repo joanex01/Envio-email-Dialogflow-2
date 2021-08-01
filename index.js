@@ -25,23 +25,24 @@ const dialogflowFullfillment =(request, response) => {
         var transporte = nodemailer.createTransport({
             service: 'Outlook', //servidor a ser usado
             auth: {
-                user: process.env.user, // dizer qual o usuário
-                pass: process.env.pass // senha da conta
+                user: "joaovitorsoares0802@hotmail.com", // dizer qual o usuário
+                pass: "vito080202" // senha da conta
             }
         });
 
         var email = {
-            from: process.env.user, // Quem enviou este e-mail
+            from:"joaovitorsoares0802@hotmail.com", // Quem enviou este e-mail
             to: request.body.queryResult.parameters['email'], // Quem receberá
             subject: request.body.queryResult.parameters['assunto'], // Um assunto
             html: request.body.queryResult.parameters['mensagem'] // O conteúdo do e-mail
         };
 
         transporte.sendMail(email, function(error, info){
-            if(error)
-            console.log (error);
-            throw error; // algo de errado aconteceu.
-            console.log('Email enviado! Leia as informações adicionais: '+ info);
+            if(error){
+                console.log (error);
+                throw error; // algo de errado aconteceu.
+            }
+            agent.add('Email enviado! Leia as informações adicionais: '+ info);
         });
     
     }
