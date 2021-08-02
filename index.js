@@ -25,13 +25,13 @@ const dialogflowFullfillment =(request, response) => {
         var transporte = nodemailer.createTransport({
             service: 'Outlook', //servidor a ser usado
             auth: {
-                user: "joaovitorsoares0802@hotmail.com", // dizer qual o usuário
-                pass: "vito080202" // senha da conta
+                user: "dorinhateste123@hotmail.com", // dizer qual o usuário
+                pass: "Aqua1313" // senha da conta
             }
         });
 
         var email = {
-            from:"joaovitorsoares0802@hotmail.com", // Quem enviou este e-mail
+            from:"dorinhateste123@hotmail.com", // Quem enviou este e-mail
             to: request.body.queryResult.parameters['email'], // Quem receberá
             subject: request.body.queryResult.parameters['assunto'], // Um assunto
             html: request.body.queryResult.parameters['mensagem'] // O conteúdo do e-mail
